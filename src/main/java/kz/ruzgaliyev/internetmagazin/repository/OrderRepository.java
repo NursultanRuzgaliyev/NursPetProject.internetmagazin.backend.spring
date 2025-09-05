@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order,Long> {
-    List<Order> findByOrderId(Long orderId);
-    List<Order> findbyOrderDate(LocalDateTime orderDate);
+    List<Order> findByOrderDate(LocalDateTime orderDate);
     List<Order> findByTotalPrice(double totalPrice);
 }

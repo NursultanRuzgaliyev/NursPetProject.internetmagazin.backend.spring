@@ -6,11 +6,13 @@ import kz.ruzgaliyev.internetmagazin.responseDto.ProductResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel="spring")
-public interface ProductMapper {
-    @Mapping(source = "category.name",target="categoryName")
-    ProductResponseDto toDto(Product product);
+import java.util.List;
 
-    @Mapping(source = "categoryId",target = "category.id")
-    Product toEntity(ProductRequestDto productRequestDto);
+@Mapper(componentModel = "spring")
+public interface ProductMapper {
+    @Mapping(source = "categoryId", target = "category.id")
+    Product toEntity(ProductRequestDto dto);
+
+    @Mapping(source = "category.name", target = "categoryName")
+    ProductResponseDto toDto(Product entity);
 }

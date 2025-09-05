@@ -6,17 +6,16 @@ import kz.ruzgaliyev.internetmagazin.responseDto.OrderItemResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface OrderItemMapper {
-    @Mapping(source = "product.id",target = "productId")
-    @Mapping(source = "order.id",target = "orderId")
-    @Mapping(source = "product.name",target = "productName")
-    OrderItemResponseDto toOrderItemResponseDto(OrderItem orderItem);
+    @Mapping(source = "productId", target = "product.id")
+    @Mapping(source = "orderId", target = "order.id")
+    OrderItem toEntity(OrderItemRequestDto dto);
 
-    @Mapping(source = "productId",target = "product.id")
-    @Mapping(source = "orderId",target = "order.id")
-    @Mapping(source = "productId",target = "product.id")
-    OrderItem toEntity(OrderItemRequestDto orderItemRequestDto);
-
-
+    @Mapping(source = "product.id", target = "productId")
+    @Mapping(source = "product.name", target = "productName")
+    @Mapping(source = "order.id", target = "orderId")
+    OrderItemResponseDto toDto(OrderItem entity);
 }

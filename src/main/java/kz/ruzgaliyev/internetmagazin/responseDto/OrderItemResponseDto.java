@@ -3,7 +3,7 @@ package kz.ruzgaliyev.internetmagazin.responseDto;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import lombok.*;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "categories")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,7 +16,9 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     @OneToMany(fetch = FetchType.EAGER)
     private List<Product> products = new ArrayList<>();
 }

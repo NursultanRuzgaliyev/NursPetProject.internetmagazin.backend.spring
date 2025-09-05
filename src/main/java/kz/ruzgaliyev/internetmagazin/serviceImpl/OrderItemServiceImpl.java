@@ -29,21 +29,21 @@ public class OrderItemServiceImpl implements OrderItemService {
     public OrderItemResponseDto createOrderItem(OrderItemRequestDto orderItemRequestDto) {
         OrderItem orderItem = orderItemMapper.toEntity(orderItemRequestDto);
         OrderItem savedOrderItem = orderItemRepository.save(orderItem);
-        return orderItemMapper.toOrderItemResponseDto(savedOrderItem);
+        return orderItemMapper.toDto(savedOrderItem);
     }
 
     @Override
     public OrderItemResponseDto getOrderItemById(Long orderItemId) {
         OrderItem orderItem = orderItemRepository.findById(orderItemId)
                 .orElseThrow(()-> new RuntimeException("OrderItem can not found"));
-        return orderItemMapper.toOrderItemResponseDto(orderItem);
+        return orderItemMapper.toDto(orderItem);
     }
 
     @Override
     public List<OrderItemResponseDto> getAllOrderItems() {
         return orderItemRepository.findAll()
                 .stream()
-                .map(orderItemMapper::toOrderItemResponseDto)
+                .map(orderItemMapper::toDto)
                 .collect(Collectors.toList());
     }
 
@@ -64,7 +64,7 @@ public class OrderItemServiceImpl implements OrderItemService {
             orderItem.setOrder(order);
         }
         OrderItem updatedOrderItem = orderItemRepository.save(orderItem);
-        return orderItemMapper.toOrderItemResponseDto(updatedOrderItem);
+        return orderItemMapper.toDto(updatedOrderItem);
 
     }
 

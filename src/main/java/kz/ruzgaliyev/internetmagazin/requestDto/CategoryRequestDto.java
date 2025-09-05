@@ -3,7 +3,6 @@ package kz.ruzgaliyev.internetmagazin.requestDto;
 import lombok.*;
 import java.util.List;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
